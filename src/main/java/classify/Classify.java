@@ -3,9 +3,9 @@ package classify;
 import classify.data.DataHandler;
 import classify.student.StudentList;
 import classify.textfilecode.TextFileHandler;
+import classify.ui.UI;
 import classify.user.InputParsing;
 import classify.user.UserInput;
-import classify.ui.UI;
 import java.io.IOException;
 import java.util.Scanner;
 
