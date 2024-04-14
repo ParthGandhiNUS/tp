@@ -16,36 +16,41 @@ all Tuition Centres can employ for ease of student management.
   * Feature: `Edit`
     * Added base feature to access students' attributes and details.
     * Implemented sub-features such as adding, removing or editing existing subjects.
-    
+
   * Feature: `Archive` and `Unarchive`
     * Implemented archiving and unarchiving feature.
     * Implemented `DataHandler` class to manage reading and writing of archived students within a data file.
 
   * Non-features:
-    * Implemented `SubjectGrade` class.
-    * Implemented and maintained heavily re-used helper functions for the team, such as `findSubject` which finds whether a subject exists under a student and `isValidGrade` which validates input format for grade.
+    * Implemented `SubjectGrade` class. 
+    * Wrote `EditTest` class to test edit feature.
+    * Implemented helper functions and exceptions re-used by the team, such as:
+      * `findSubject` method which finds whether a subject exists under a student
+      * `isValidGrade` method which validates input format for grade.
+      * `InvalidSubjectException` exception which prevents duplicate subjects. Used by `AddSubject` and `EditSubject` classes.
 
 
 - **Contributions to [UG](https://github.com/AY2324S2-CS2113-T13-3/tp/blob/master/docs/UserGuide.md)**
-  * Wrote content related to `edit`, `archive`, `unarchive` features.
-  * Finalised formatting in UG, such as standardising the layout in `Usage` section.
+  * Wrote for `edit`, `archive`, `unarchive` features.
+  * Finalised formatting in UG, such as standardising the layout under `Usage` section.
 
 
   
 - **Contributions to [DG](https://github.com/AY2324S2-CS2113-T13-3/tp/blob/master/docs/DeveloperGuide.md)**
-  * ...
+  * Wrote `EditStudent` and `ArchiveCommands` component
+  * Wrote `Archiving/unarchiving a student` and `Editing a student's details` under manual testing.
 
 
-- **Contributions to Team-Based tasks:** 
-  * Wrote `EditTest` class to test edit feature.
+- **Contributions to Team-Based tasks:**
   * Refactored/rewrote at least 300 LoC (authored by teammates) to improve code quality, such as for [input checking](https://github.com/AY2324S2-CS2113-T13-3/tp/commit/23f3ac553d243b9d31d80fdd05ff2ac3b3a2d57e) and [file IO](https://github.com/AY2324S2-CS2113-T13-3/tp/commit/932b51fbdb542b59f3ecdcaa1c04c65eda873ff1).
   * Established TP's current code organisation, such as refactoring project into respective packages `commands`, `data`, `ui` etc.
   * Maintained team's GitHub Project, such as updating status and priority of project items.
-  * Monitored and maintained repo's issues, such as opening, closing and re-assigning issues.
+  * Created group demo video.
 
 
 - **Review/mentoring contributions**
     * Actively reviewed and approved team's PRs, with some recent examples [here](https://github.com/AY2324S2-CS2113-T13-3/tp/pull/258) or [here](https://github.com/AY2324S2-CS2113-T13-3/tp/pull/246).
 
+
 - **Contributions beyond project team**
-    * Did [exploratory testing of T13-4's TP] (https://github.com/orgs/AY2324S2-CS2113-T13-4/discussions/256) before their final release.
+    * Did [exploratory testing of T13-4's TP](https://github.com/orgs/AY2324S2-CS2113-T13-4/discussions/256) before their final release.

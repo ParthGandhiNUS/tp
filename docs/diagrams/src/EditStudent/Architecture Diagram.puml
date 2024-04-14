@@ -1,0 +1,26 @@
+@startuml
+title Sequence Diagram: Calling editStudent and editing subject
+
+actor User
+participant "InputParsing" as InputParsing <<class>>
+
+participant "EditCommand" as EditCommand<<class>>
+participant "StudentList" as StudentList<<class>>
+activate EditCommand
+activate StudentList
+activate InputParsing
+
+User->InputParsing: String: EDIT
+"InputParsing"->EditCommand: editStudent()
+User-> EditCommand: String: NAME
+EditCommand -> StudentList: getStudent(NAME)
+EditCommand <-- StudentList: Student:student
+EditCommand -> EditCommand: editStudentDetails(student)
+User-> EditCommand: String:EDIT_GENDER
+EditCommand -> EditCommand: editGender(student.attributes)
+User-> EditCommand: String:GENDER
+EditCommand -> StudentList: setGrade(GENDER)
+deactivate EditCommand
+deactivate StudentList
+hide footbox
+@enduml

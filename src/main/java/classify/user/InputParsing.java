@@ -49,15 +49,15 @@ public class InputParsing {
     private static final String CLASSES_ATTENDED_MUST_BE_LESS = "Classes attended must be less than 500.";
 
     public static void parseUserCommand(String[] userCommand, ArrayList<Student> masterStudentList,
-            ArrayList<Student> recentlyDeletedList,
-            ArrayList<Student> archiveList, Scanner in) {
+                                        ArrayList<Student> recentlyDeletedList,
+                                        ArrayList<Student> archiveList, Scanner in) {
         //@@author blackmirag3
         if (masterStudentList == null) {
             System.out.println("Student list is null.");
         }
         //@@author tayponghee
-        
-        if (userCommand == null ) {
+
+        if (userCommand == null) {
             UI.printDivider();
             return;
         }
@@ -104,7 +104,7 @@ public class InputParsing {
                 parseListCommand(masterStudentList, archiveList, recentlyDeletedList, in);
             }
             break;
-        
+
         case PROCESS_FILE:
             TextFileHandler.process(masterStudentList, in);
             break;
@@ -134,15 +134,16 @@ public class InputParsing {
     }
 
     //ParthGandhiNUS
+
     /**
      * Function which leads to the chooseListType Function
-     * 
+     *
      * @param masterStudentList List of the students used in the chooseListType function
-     * @param scanner Scanner used for the chooseListType function
+     * @param scanner           Scanner used for the chooseListType function
      */
     //@@author tayponghee
     public static void parseListCommand(ArrayList<Student> masterStudentList, ArrayList<Student> archiveList
-                                        , ArrayList<Student> deletedList, Scanner scanner) {
+            , ArrayList<Student> deletedList, Scanner scanner) {
         UI.printListCommandStart();
         String subject = scanner.nextLine().trim();
         ListStudentsCommand.chooseListType(masterStudentList, archiveList, deletedList, scanner, subject);
@@ -188,6 +189,7 @@ public class InputParsing {
     }
 
     //@@author blackmirag3
+
     /**
      * Prompts for grade from user input and checks format
      * Prompts the user to enter a valid double within the range [0, 100] until one
@@ -259,10 +261,10 @@ public class InputParsing {
     /**
      * Function looks through a list of students with the same name,
      * prints them out, and expects an Integer input to specify a student.
-     * 
+     *
      * @param studentList List of students to look for.
      * @param in          Scanner to parse in the user input.
-     * @return            Student with right name and number pair.
+     * @return Student with right name and number pair.
      */
     private static Student findStudentByNumber(ArrayList<Student> studentList, Scanner in) {
         assert studentList.size() > 1 : "List should contain more than one Student";
@@ -293,12 +295,12 @@ public class InputParsing {
     }
 
     //@@author ParthGandhiNUS
+
     /**
      * Returns a true or false depending on user input for number of lines
-     * 
-     * @param classesAttended   Takes in the integer input by the user
+     *
+     * @param classesAttended Takes in the integer input by the user
      * @return True if number of classes attended is greater than 0 and false otherwise.
-     * 
      */
     public static boolean isValidClassesAttended(int classesAttended) {
 
@@ -315,14 +317,14 @@ public class InputParsing {
         }
         return true;
     }
-    
+
     //@@author ParthGandhiNUS
+
     /**
      * Returns a true or false depending on user input for grade input
-     * 
-     * @param grade   Takes in the double input by the user for the subject grade
-     * @return False if number of subject grade is less than 0 or more than 100
-     *         Returns true otherwise
+     *
+     * @param grade Takes in the double input by the user for the subject grade
+     * @return False if number of subject grade is less than 0 or more than 100. Returns true otherwise
      */
     //@@author blackmirag3
     private static boolean isValidGrade(double grade) {
@@ -337,19 +339,19 @@ public class InputParsing {
     }
 
     //@@author Cryolian
+
     /**
      * Creates a looping prompt asking for a phone number.
      * Only exits the loop when either an exception is thrown,
      * or when the number is either 8 or 10 digits to account for
      * the length of a Singaporean number, with or without
      * the country code.
-     * 
+     *
      * @param in The scanner class to read inputs from.
-     * @return -1 if an exception was thrown. An 8
-     *         or 10-digit number if not.
+     * @return -1 if an exception was thrown. An 8 or 10-digit number if not.
      * @throws NumberFormatException thrown if invalid number is give
      */
-    public static int promptForPhoneNumber(Scanner in) throws NumberFormatException{
+    public static int promptForPhoneNumber(Scanner in) throws NumberFormatException {
 
         int number = 0;
 
@@ -363,11 +365,12 @@ public class InputParsing {
     }
 
     //@@author ParthGandhiNUS
+
     /**
      * Uses the scanner to read the all the characters input by the user
-     * 
+     *
      * @param in Scanner takes in the next line input by user
-     * @return  integer value of the characters input by the user
+     * @return integer value of the characters input by the user
      * @throws NumberFormatException in the event that the characters input by the user are not numbers
      */
     //@@author Cryolian
@@ -379,9 +382,10 @@ public class InputParsing {
     }
 
     //@@author ParthGandhiNUS
+
     /**
      * Returns true or false depending on whether the number is a valid Singapore phone number
-     * 
+     *
      * @param number Integer number input by user
      * @return True if the number is a valid Singapore Number, false otherwise
      */
@@ -391,14 +395,14 @@ public class InputParsing {
     }
 
     //@@author ParthGandhiNUS
+
     /**
      * A prompting input to scan in a string from the user input.
-     * If special characters are found, the default string value 
+     * If special characters are found, the default string value
      * is returned.
-     * 
+     *
      * @param in The scanner class to scan inputs from.
-     * @return "Unknown" if blank was inputted, or the
-     *         trimmed string inputted by the user.
+     * @return "Unknown" if blank was inputted, or the trimmed string inputted by the user.
      */
     //@@author Cryolian
     public static String readInString(Scanner in) {
@@ -407,7 +411,7 @@ public class InputParsing {
         if (string.isBlank()) {
             return DEFAULT_STRING_VALUE;
         }
-        
+
         try {
             InputParsing.checkForSpecialCharacters(string);
         } catch (InvalidCharacterException e) {
@@ -421,10 +425,12 @@ public class InputParsing {
     }
 
     //@@author Cryolian
+
     /**
      * Prompts the user for a date in a format of YYYY--MM--DD
+     *
      * @param in The scanner object to read in the user input.
-     * @return   A valid LocalDate object from the user input.
+     * @return A valid LocalDate object from the user input.
      */
     public static LocalDate readInDate(Scanner in) {
 
@@ -441,14 +447,15 @@ public class InputParsing {
         return paymentDate;
     }
 
-    
+
     //@@author Cryolian
+
     /**
-     * Converts a string into a date format. If blank is entered, the current date is 
+     * Converts a string into a date format. If blank is entered, the current date is
      * returned.
-     * 
+     *
      * @param string The String to convert to a LocalDate object.
-     * @return       A date parsed from the string or the current date as a LocalDate object.
+     * @return A date parsed from the string or the current date as a LocalDate object.
      */
     protected static LocalDate parseDateFromString(String string) {
 
@@ -469,6 +476,7 @@ public class InputParsing {
 
         return paymentDate;
     }
+
     //@@author Cryolian
     private static LocalDate printInvalidDateMessage() {
         LOGGER.log(Level.WARNING, "Invalid date format entered." + '\n');
@@ -492,8 +500,8 @@ public class InputParsing {
 
     /**
      * Checks if a string contains the special characters #,- or ~
-     * 
-     * @param string                     String to check.
+     *
+     * @param string String to check.
      * @throws InvalidCharacterException Thrown if the special characters are found.
      */
     public static void checkForSpecialCharacters(String string)
@@ -505,7 +513,7 @@ public class InputParsing {
         if (string.contains("~")
                 || string.contains("-")
                 || string.contains("#")
-            ) {
+        ) {
 
             throw new InvalidCharacterException();
 
