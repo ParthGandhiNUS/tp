@@ -294,14 +294,13 @@ Classify serves as an attempt to modernise administrative tasks in education ins
 
 1. **Performance**:
    - The system should respond to user actions within 1 second under normal operating conditions.
-   - It should be able to handle a minimum of 100 concurrent users without significant degradation in performance.
    - The system should encompass all basic data types that an administrator would need to know about a student to register them for classes in the tuition centre.
 
 2. **Reliability**:
    - In the event the program crashes, the data that was last updated into the storage should not be destroyed.
 
 3. **Scalability**:
-   - The system should be designed to accommodate future growth in the number of students and users.
+   - The system should be designed to accommodate future growth in the number of students.
 
 4. **Usability**:
    - The user interface should be intuitive and easy to navigate, requiring minimal training for users to become proficient.

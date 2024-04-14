@@ -83,7 +83,13 @@ public class AddStudent {
             return;
         }
 
-        setAttributesForStudent(masterStudentList, in, student, number);
+        //@@author tayponghee
+        try {
+            setAttributesForStudent(masterStudentList, in, student, number);
+        } catch (Exception e) {
+            UI.println("An error occurred while setting attributes for the student: " + e.getMessage());
+            UI.printDivider();
+        }
     }
 
     /**
