@@ -2,6 +2,7 @@ package classify.student;
 
 import java.util.ArrayList;
 
+import classify.user.InvalidSubjectException;
 import classify.user.NameNumberMatchException;
 
 /**
@@ -123,8 +124,7 @@ public class StudentList {
                         "name and phone number found.");
             }
             //@@author blackmirag3
-            assert (s.getName().equalsIgnoreCase(name) && s.getPhoneNumber() == number) 
-                    == false: "something went wrong";
+            assert !(s.getName().equalsIgnoreCase(name) && s.getPhoneNumber() == number) : "something went wrong";
 
             //@@author Cryolian
         }
@@ -153,6 +153,27 @@ public class StudentList {
             }
         }
 
+    }
+
+    //@@author blackmirag3
+    /**
+     * Checks if a new subject name matches that of any subject under a student
+     * Throws exception if match is found
+     * @param attributes                Student's subjects to compare to
+     * @param newSubject                New subject name to search for in student's subjects
+     * @param oldName                   Current subject name
+     * @throws InvalidSubjectException  Thrown if match is found
+     */
+    public static void checkExistingSubject(StudentAttributes attributes, String newSubject,
+                                            String oldName) throws InvalidSubjectException {
+        if (newSubject.equals(oldName)) {
+            throw new InvalidSubjectException("New subject name same as current.");
+        }
+        SubjectGrade foundSubject = attributes.findSubject(newSubject);
+
+        if (foundSubject != null) {
+            throw new InvalidSubjectException("Subject already exists.");
+        }
     }
 
 }

@@ -8,6 +8,7 @@
    - [InputParsing component](#inputparsing-component)
    - [Student Details](#student-details)
    - [AddStudent Component](#addstudent-component)
+   - [EditStudent Component](#editstudent-component)
    - [StudentSorter Component](#studentsorter-component)
    - [Data Commands Component](#data-commands-component)
    - [Process Component](#process-component)
@@ -174,6 +175,27 @@ along with their grades and classes attended for each student.
 or duplicate names are encountered.
 
 The `AddStudent` class contributes to the overall functionality of the application by providing a streamlined process for adding new students and ensuring data integrity within the student database.
+
+### EditStudent Component
+The `EditStudent` class is responsible for editing the subjects or details of an existing student.
+This class contains the `editStudent` method which is called by `InputParsing` class when user chooses to enter edit mode for a student.
+
+The following is a sequence diagram for an example of when `editStudent` is called to find and modify a student's gender.
+
+![EditStudentSequenceUML](./diagrams/src/EditStudent/EditStudent.PNG)
+
+#### Design Considerations
+- **Preventing Duplicate Subjects/Name-Number Pairs**: Checks if new subject name matches the name of any other existing subjects or if new phone number matches that of another student with same name.
+- **Input Validation**: It validates the format of input attributes such as phone number, gender, last payment date, and remarks before overwriting student's details.
+- **Modular Approach**: The class is designed with modularity in mind,
+  allowing easy addition of new attributes or modifications in the future.
+
+#### Implementation and Rationale
+- **Case Commands**: Depending on what the user wishes to edit for the student, `addSubject`, `editSubject`, `deleteSubject`, `editNumber`, `editRemarks`, `editPaymentDate` and `editGender` methods are called.
+- **Attribute Validation**: For adding and editing subject, the `InvalidSubjectException` is used to catch invalid subject names to prevent duplicate subjects from existing under a student. For modifying phone number, the `InvalidPhoneNumber` and `NameNumberMatchException` is used to catch invalid phone numbers and prevent duplicates in student-phone number pairs in the student list.
+- **Error Handling**: Appropriate error messages are printed if invalid input or duplicate names are encountered.
+
+The `EditStudent` class contributes to the overall functionality of the application by providing a holistic process for editing existing students and ensuring data integrity within the student database.
 
 ### StudentSorter Component
 
@@ -391,7 +413,7 @@ Classify serves as an attempt to modernise administrative tasks in education ins
    3. Test Case: `unarchive`, `tim`  
    </br> Expected: `tim` will be removed from archive and added back to student list.
 
-#### 2. Archiving/unarchiving student that does not exist:
+#### 3. Archiving/unarchiving student that does not exist:
 1. Prerequisites: Have an empty student list
 2. Test Case: `archive joe`
    </br> Expected: Error message printed for no student found and prompts for new command.
@@ -415,61 +437,7 @@ Classify serves as an attempt to modernise administrative tasks in education ins
 4. Test Case: `1`, ` `
 </br> Expected: Returns to edit mode for 'tim' and no change in subjects is made for 'tim'.
 
-#### 3. Modifying existing subject under existing student
-1. Prerequisites: Add student 'tim' with subject 'CS2113' and initiate edit mode for 'tim'.
-2. Test Case: `2`, `CS2113`, `CS3223`, `2`, `0`
-<br/> Expected: Returns to edit mode for 'tim' and 'tim' now has subject 'CS3223' with '2' marks and '0' classes attended.
-3. Test Case: `2`, ` `
-</br> Expected: Returns to edit mode for 'tim' and no change in subjects is made for 'tim'.
-
-#### 4. Deleting existing subject under existing student
-1. Prerequisites: Add student 'tim' with subject 'CS2113' and initiate edit mode for 'tim'.
-2. Test Case: `3`, `CS2113`
-<br/> Expected: Returns to edit mode for 'tim', subject 'CS2113' is deleted and 'tim' now has no subjects.
-3. Test Case: `3`, ` `
-</br> Expected: Returns to edit mode for 'tim' and no change in subjects is made for 'tim'.
-
-#### 5. Modify existing phone number under existing student
-1. Prerequisites: Add student 'tim' with phone number '88888888' and initiate edit mode for 'tim'.
-2. Test Case: `4`, `88888887`
-<br/> Expected: Returns to edit mode for 'tim' and phone number for 'tim' is now '88888887'.
-3. Test Case: `4`, ` `
-</br> Expected: Returns to edit mode for 'tim' and no change in phone number is made for 'tim'.
-4. Test Case: `4`, `lol`
-</br> Expected: Returns to edit mode for 'tim' and no change in phone number is made for 'tim'.
-
-#### 6. Modify remarks under existing student
-1. Prerequisites: Add student 'tim' and initiate edit mode for 'tim'.
-2. Test Case: `5`, `deans list material`
-<br/> Expected: Returns to edit mode for 'tim' and remarks for 'tim' is now 'deans list material'.
-3. Test Case: `5`, ` `
-</br> Expected: Returns to edit mode for 'tim' and no change in remarks is made for 'tim'.
-
-#### 7. Modify payment date under existing student
-1. Prerequisites: Add student 'tim' and initiate edit mode for 'tim'.
-2. Test Case: `6`, ` `
-   <br/> Expected: Returns to edit mode for 'tim' and payment date for 'tim' is system's current date in YYYY-MM-DD format.
-3. Test Case: `6`, `2000-11-20`
-   </br> Expected: Returns to edit mode for 'tim' and payment date for 'tim' is now '2000-11-20'.
-4. 
-#### 8. Modify gender under existing student
-1. Prerequisites: Add student 'tim' and initiate edit mode for 'tim'.
-2. Test Case: `7`, `undefined`
- <br/> Expected: Returns to edit mode for 'tim' and gender for 'tim' is now 'undefined'.
-3. Test Case: `7`, ` `
-</br> Expected: Returns to edit mode for 'tim' and no change in remarks is made for 'tim'.
-
-#### 9. Editing student in empty list
-1. Prerequisites: Have empty list with no students added.
-2. Test Case: `edit`
-</br> Expected: Error message for empty list will be printed.
-
-#### 10. Editing non-existent student in non-empty list
-1. Prerequisites: Add student `tim`
-2. Test Case: `edit john`
-</br> Expected: Error message for non-existed student will be printed.
-
-#### 11. Testing invalid entries for editing student
+#### 3. Testing invalid entries for editing student
 1. Prerequisites: Add student 'tim' with subjects 'CS2113', 'CS2040' and phone number '88888888' and initiate edit mode for 'tim'.
 2. Test Case: `1`, `cs2113`
 </br> Expected: Returns to edit mode for 'tim', no new subject added and error message printed for adding existing subject.

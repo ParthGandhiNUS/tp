@@ -497,33 +497,37 @@ Currently, there are 4 students in the list.
 ### Sort the list of students `sort`
 Sorts the list of students based on the following input. Allows the user to do sort [type] or just sort.
 
-**Format:** `sort`, **`sort name`**, `sort classes` or `sort payment`
+**Format:** `sort`, `sort name`, `sort classes` or `sort payment`
 
 Depending on whether the user entered the student's name or not during the command, 
 fields will be printed out in the terminal, awaiting a user input each time.
+
+In the event the commands  **`sort name`**, `sort classes` or `sort payment` was typed, the program would immediately
+go into the sort type.
+
 
 #### Example usage:
 
 ```
 sort
-Sort by: (Choose index)
+Sort by: (Choose index) or press enter to escape
 1. Name (A to Z):
 2. Total number of classes attended:
 3. Date of last fee payment: 
 1
 List of Students:
-1. mario
-2. toad
-3. wario
+1. Mario
+2. Toad
+3. Wario
 Currently, there are 3 students in the list.
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Sort complete!
 
 sort payment
-1.toad - Date of last payment: 2015-10-21
-2.mario - Date of last payment: 2024-03-30
-3.wario - Date of last payment: 2024-03-30
+1.Toad - Date of last payment: 2015-10-21
+2.Mario - Date of last payment: 2024-03-30
+3.Wario - Date of last payment: 2024-03-30
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Sort complete!
 ```
