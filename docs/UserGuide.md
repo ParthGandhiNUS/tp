@@ -187,7 +187,12 @@ Thus, please be informed and educated that our software only works in countries 
 To be specific, this is referring to a city-state republic in South East Asia, that lies in the timezone GMT +8 in the Straits of Johor. 
 Some may debate that our time zone is actually GMT+7.5 or GMT+7, but it was changed to facilitate business deals and decisions with other financial hubs in the region thanks to our capitalistic overlords.
 
+Do note that the subject field will allow numbers as well, since lessons such as Chinese1E and Chinese1H are legitimate class names, which could signify express and higher mother tongue respectively.
+As such, it is on the onus of the user to not use nonsensical names for the subjects, to ensure that the database is sensible.
+
 Last payment date must be within a range from 1970-01-01 to the day after the current date. This is a buffer to account for situations when storing dates, such as for audit reasons.
+
+The gender field and remarks section are optional, hence if the user presses `enter`, they would proceed with the next command or end the add student interface respectively.
 
 <div style="page-break-after: always;"></div>
 
@@ -208,9 +213,20 @@ Do you want to add another subject and grade? (yes/no)
 no
 
 Please input a valid Phone number: 
+Enter a non-number or blank to exit interface.
 89718971
-.
-.
+
+Please input the student's gender:
+male
+
+Please input their last payment date in the format of YYYY-MM-DD. Enter blank to input today's date.
+14-04-2024
+
+Please input any remarks:
+He likes turtles
+
+Student added successfully!
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ```
 
 ###  View details of a student `view`

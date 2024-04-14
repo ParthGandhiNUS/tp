@@ -98,7 +98,7 @@ public class ViewStudent {
             UI.printDivider();
             return -1;
         }
-        
+
         return totalClassesAttended;
     }
 
