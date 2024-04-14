@@ -228,6 +228,21 @@ He likes turtles
 Student added successfully!
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ```
+For any student that exists within the programme's master, archive and recently deleted list, the user cannot add new students with a name-phone number pair that matches that of the existing student.
+
+The following is an example of trying to add a new student that matches the name and phone number of an already existing student.
+
+#### Example usage:
+```
+add melodie
+Subject (enter nothing to skip):
+No subjects added.
+Please input a valid phone number:
+Enter a non-number or blank to exit interface.
+88888888
+Student and Phone number pair found. If not found in the list, please restore or unarchive the student instead.
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+```
 
 ###  View details of a student `view`
 
@@ -261,21 +276,7 @@ Subject: subject
 Current marks out of 100: 100.0
 Classes Attended: 1
 ```
-For any student that exists within the programme's master, archive and recently deleted list, the user cannot add new students with a name-phone number pair that matches that of the existing student.
 
-The following is an example of trying to add a new student that matches the name and phone number of an already existing student.
-
-#### Example usage:
-```
-add melodie
-Subject (enter nothing to skip):
-No subjects added.
-Please input a valid phone number:
-Enter a non-number or blank to exit interface.
-88888888
-Student and Phone number pair found. If not found in the list, please restore or unarchive the student instead.
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-```
 
 ### Delete a student from the working list `delete`
 Deletes the student from the list. Allows the user to do delete [student] or just delete.
