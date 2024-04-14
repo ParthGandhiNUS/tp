@@ -85,11 +85,20 @@ public class ViewStudent {
      */
     private static int getTotalClassesAttended(Student student) {
         int totalClassesAttended = 0;
-        for (classify.student.SubjectGrade subjectGrade : student.getAttributes().getSubjectGrades()) {
-            if (subjectGrade.getClassesAttended() >= 0) {
-                totalClassesAttended += subjectGrade.getClassesAttended();
+
+        try {
+            for (classify.student.SubjectGrade subjectGrade : student.getAttributes().getSubjectGrades()) {
+                if (subjectGrade != null && subjectGrade.getClassesAttended() >= 0) {
+                    totalClassesAttended += subjectGrade.getClassesAttended();
+                }
             }
+        } catch (NullPointerException e) {
+            UI.println("A NullPointerException occurred while calculating total classes attended for student: "
+                    + student.getName());
+            UI.printDivider();
+            return -1;
         }
+        
         return totalClassesAttended;
     }
 
