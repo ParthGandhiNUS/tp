@@ -9,8 +9,11 @@ import classify.user.NameNumberMatchException;
 
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class ArchiveCommands {
+    private static final Logger logger = Logger.getLogger(InputParsing.class.getName());
 
     //@@author blackmirag3
     /***
@@ -45,7 +48,12 @@ public class ArchiveCommands {
         //@@author blackmirag3
         archiveList.remove(student);
         masterList.add(student);
+
+        assert !archiveList.contains(student);
+        assert masterList.contains(student);
         UI.println("Unarchive successful.");
+        logger.log(Level.INFO, "Unarchived " + student.getName());
+
         DataHandler.writeArchive(archiveList);
         DataHandler.writeStudentInfo(masterList);
     }
@@ -81,7 +89,12 @@ public class ArchiveCommands {
         //@@author blackmirag3
         masterList.remove(student);
         archiveList.add(student);
+
+        assert archiveList.contains(student);
+        assert !masterList.contains(student);
         UI.println("Archive successful.");
+        logger.log(Level.INFO, "Archived " + student.getName());
+
         DataHandler.writeArchive(archiveList);
         DataHandler.writeStudentInfo(masterList);
     }
@@ -93,12 +106,10 @@ public class ArchiveCommands {
         Student student = InputParsing.findStudentByName(archiveList, name, in);
         if (student == null) {
             UI.printStudentNotFound();
+            logger.log(Level.INFO, "Student not found.");
             return null;
         }
+        logger.log(Level.INFO, "found " + student.getName());
         return student;
-    }
-
-    public static void viewArchive() {
-
     }
 }

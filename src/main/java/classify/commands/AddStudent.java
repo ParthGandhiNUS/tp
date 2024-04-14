@@ -8,6 +8,7 @@ import classify.student.SubjectGrade;
 import classify.ui.UI;
 import classify.user.InputParsing;
 import classify.user.InvalidCharacterException;
+import classify.user.InvalidSubjectException;
 import classify.user.NameNumberMatchException;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -46,7 +47,7 @@ public class AddStudent {
             UI.printDivider();
             return;
         } 
-        
+
         Student student = new Student(name);
         addSubject(in, student.getAttributes());
 
@@ -202,20 +203,24 @@ public class AddStudent {
      */
     public static void addSubject(Scanner in, StudentAttributes attributes) {
         while (true) {
-            //@@ author blackmirag3
+            //@@author blackmirag3
             System.out.print(SUBJECT_ENTER_NOTHING_TO_SKIP);
             String subject = readInString(in);
+            assert subject != null;
 
             if (subject.isBlank() || subject.equals(InputParsing.DEFAULT_STRING_VALUE)) {
                 UI.printNoSubjectsAdded();
                 break;
+            }
 
-            } else if (attributes.findSubject(subject) != null) {
-                // rejects subject if existing subject of same name exists in students'
-                UI.printSubjectAlreadyExists();
-                break;
+            try {
+                StudentList.checkExistingSubject(attributes, subject, null);
+            } catch (InvalidSubjectException e) {
+                e.printMessage();
+                return;
+            }
 
-            } else if (isValidSubjectResponse(in, attributes, subject)) {
+            if (isValidSubjectResponse(in, attributes, subject)) {
                 //@@author tayponghee
                 return;
             }
