@@ -15,6 +15,7 @@ Overall, the code base has more than 7000 Lines of Code, and is written in Java.
 * Refers to the writing of data in Student_Information.txt in Classify
 * Highlights: Creates a directory and file on your computer if it does not exist. Updates the Student_Information.txt file with all the students' attributes (eg. Name, Phone Number, Gender, Last Payment Date, All subject information, etc). The file is constantly overwritten when a command (eg. Add Student, Delete Student, etc) is used. There is a standardised format used to store all the data. Different Regex are used to differentiate the different types of data and to assist in data parsing (mentioned below).
 * Justification: Since the data inputted by the user is what forms our "database" of students we need to constantly update our database with every change to ensure our "database" is updated.
+<div style="page-break-after: always;"></div>
 
 **Feature: Data Retrieval and Parsing from Student_Information.txt**
 * Refers to the retrieval and parsing of retrieved data in Classify
@@ -36,6 +37,7 @@ Overall, the code base has more than 7000 Lines of Code, and is written in Java.
     Otherwise this functionality either attributes the subject in this text file to the existing student or makes a new student with info about this subject and the students' phone number.
     * Just like the data parser, the process here has a separate fully functional parser which parses information a bit differently as compared to the data parser. In the process parser, the only regex used is ```~~``` to ensure that it is simple for users to make the text file for entering into the system. 
 * Justification: Process is meant to be a one-stop fast and easy way for administrators to add students. The system already checks for matching students and matching subjects for every student which makes this functionality quite useful in real life. 
+<div style="page-break-after: always;"></div>
 
 ---
 **Code contributed:** [Link to Reposense contribution graph](https://nus-cs2113-ay2324s2.github.io/tp-dashboard/?search=ParthGandhiNUS&breakdown=true&sort=groupTitle%20dsc&sortWithin=title&since=2024-02-23&timeframe=commit&mergegroup=&groupSelect=groupByRepos&checkedFileTypes=docs~functional-code~test-code~other)
@@ -46,8 +48,10 @@ Overall, the code base has more than 7000 Lines of Code, and is written in Java.
 * [Contributions to UG](https://github.com/AY2324S2-CS2113-T13-3/tp/blob/master/docs/UserGuide.md):
     * Did the preface for the project. 
     * Wrote out the functionalities for Process Command 
-    [Sample File](https://github.com/AY2324S2-CS2113-T13-3/tp/blob/master/docs/SampleFile.txt)
-    [Format for writing text file](https://github.com/AY2324S2-CS2113-T13-3/tp/blob/master/docs/Text%20File%20Format%20Picture.jpg)
+    
+        [Sample File](https://github.com/AY2324S2-CS2113-T13-3/tp/blob/master/docs/SampleFile.txt)
+    
+        [Format for writing text file](https://github.com/AY2324S2-CS2113-T13-3/tp/blob/master/docs/Text%20File%20Format%20Picture.jpg)
     * Made the command summary in Tabular form for easy referencing
     * Refactored and cleaned the UG
     * Made the table of contents for the UG, linking the relevant parts of the markdown file
