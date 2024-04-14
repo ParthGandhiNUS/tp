@@ -21,6 +21,7 @@
   - [`Bye`](#exit-classify-bye)
 - [Command Summary](#command-summary)
 - [FAQ](#faq)
+
 ---
 
 <div style="page-break-after: always;"></div>
@@ -188,6 +189,8 @@ Some may debate that our time zone is actually GMT+7.5 or GMT+7, but it was chan
 
 Last payment date must be within a range from 1970-01-01 to the day after the current date. This is a buffer to account for situations when storing dates, such as for audit reasons.
 
+<div style="page-break-after: always;"></div>
+
 #### Example usage:
 ``` 
 add wario
@@ -225,6 +228,8 @@ How it works (cases for input):
 - view james wong -> james wong
 - view JAMES WONG -> JAMES WONG
   * Regardless of what capitalisation the user uses for the name, the program will recognise that upper and lower cases should return the same student.
+
+<div style="page-break-after: always;"></div>
 
 #### Example usage:
 ``` 
