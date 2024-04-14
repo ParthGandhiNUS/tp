@@ -83,9 +83,16 @@ public class AddStudent {
             return;
         }
 
-        setAttributesForStudent(masterStudentList, in, student, number);
+        //@@author tayponghee
+        try {
+            setAttributesForStudent(masterStudentList, in, student, number);
+        } catch (Exception e) {
+            UI.println("An error occurred while setting attributes for the student: " + e.getMessage());
+            UI.printDivider();
+        }
     }
 
+    //@@author cryolian
     /**
      * Sets attributes for a given student, including phone number, gender, last payment date, and remarks.
      *
