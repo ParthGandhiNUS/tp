@@ -161,11 +161,31 @@ class TextFileParserTest {
     }
 
     @Test
-    public void testMatchingNameNumberFalseCase() {
+    public void testMatchingNameNumberFalseCase1() {
         ArrayList<Student> masterStudentList = new ArrayList<>();
         Student student = new Student("Jane Doe");
         masterStudentList.add(student);
         student.getAttributes().setPhoneNumber(98989898);
+
+        assertFalse(TextFileParser.isMatchingNameNumber(masterStudentList, JOHN_DOE, NORMAL_SG_NUMBER));
+    }
+
+    @Test
+    public void testMatchingNameNumberFalseCase2() {
+        ArrayList<Student> masterStudentList = new ArrayList<>();
+        Student student = new Student(JOHN_DOE);
+        masterStudentList.add(student);
+        student.getAttributes().setPhoneNumber(98989898);
+
+        assertFalse(TextFileParser.isMatchingNameNumber(masterStudentList, JOHN_DOE, NORMAL_SG_NUMBER));
+    }
+
+    @Test
+    public void testMatchingNameNumberFalseCase3() {
+        ArrayList<Student> masterStudentList = new ArrayList<>();
+        Student student = new Student("Jane Doe");
+        masterStudentList.add(student);
+        student.getAttributes().setPhoneNumber(NORMAL_SG_NUMBER);
 
         assertFalse(TextFileParser.isMatchingNameNumber(masterStudentList, JOHN_DOE, NORMAL_SG_NUMBER));
     }
