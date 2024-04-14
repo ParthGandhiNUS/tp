@@ -269,6 +269,8 @@ Deletes the student from the list. Allows the user to do delete [student] or jus
 Depending on whether the user entered the student's name or not during the command, 
 a field will be printed out in the terminal, awaiting a user input.
 
+<div style="page-break-after: always;"></div>
+
 #### Example usage:
 ``` 
 delete
@@ -301,6 +303,8 @@ The following actions (listed along with their indexes) can be executed:
 The user can enter the action's index to execute the respective action, e.g. user can input "1" to add new subject.
 
 Each action has its own step by step prompts for user to follow, as seen in below.
+
+<div style="page-break-after: always;"></div>
 
 #### Example usages:
 ```
@@ -348,6 +352,7 @@ Name of student to edit (blank to exit):
 luigi
 No student found to edit!
 ```
+<div style="page-break-after: always;"></div>
 
 ### Restore a student to the working list `restore`
 Restores a student deleted in the current session. Allows the user to do restore [student] or just restore.
@@ -494,6 +499,8 @@ List of students in recently deleted:
 Currently, there are 4 students in the list.
 ```
 
+<div style="page-break-after: always;"></div>
+
 ### Sort the list of students `sort`
 Sorts the list of students based on the following input. Allows the user to do sort [type] or just sort.
 
@@ -532,6 +539,8 @@ sort payment
 Sort complete!
 ```
 
+<div style="page-break-after: always;"></div>
+
 ### Process a list of students from a text file `process`
 Reads a text file in the inputFolder folder located inside the data folder.
 
@@ -564,6 +573,8 @@ Mario ~~ 98988888 ~~ 98.0
 Peach ~~ 98888888 ~~ 95.0
 Tai Lung ~~ 90909090 ~~ 99.0
 ```
+
+<div style="page-break-after: always;"></div>
 
 #### Different types of Processing Possible:
 
@@ -657,7 +668,11 @@ edit
     Edits a students details, expects a name,
     can be used directly with a name
     e.g. edit [name]
+```
 
+<div style="page-break-after: always;"></div>
+
+```
 view
     Views a students details, expects a name,
     can be used directly with a name
@@ -706,7 +721,10 @@ archive
     the list and archives them,
     expects a name, can be used directly by
     archive [name].
+```
+<div style="page-break-after: always;"></div>
 
+```
 unarchive
     Removes the specified student from the
     archive and adds them to the list,
