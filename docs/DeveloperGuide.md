@@ -12,7 +12,7 @@
    - [StudentSorter Component](#studentsorter-component)
    - [Data Commands Component](#data-commands-component)
    - [Process Component](#process-component)
-   - [ArchiveCommands Component](#archivecommands-component)
+   - [Archive Commands Component](#archivecommands-component)
 - [Project Scope](#product-scope)
    - [User Stories](#user-stories)
    - [Non-Functional Requirements](#non-functional-requirements)
