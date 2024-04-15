@@ -10,9 +10,9 @@
    - [AddStudent Component](#addstudent-component)
    - [EditStudent Component](#editstudent-component)
    - [StudentSorter Component](#studentsorter-component)
-   - [Data Commands Component](#data-commands-component)
-   - [Process Component](#process-component)
-   - [Archive Commands Component](#archive-commands-component)
+   - [Data Component](#data-component)
+   - [TextFileCode Component](#textfilecode-component)
+   - [ArchiveCommands Component](#archivecommands-component)
 - [Project Scope](#product-scope)
    - [User Stories](#user-stories)
    - [Non-Functional Requirements](#non-functional-requirements)
@@ -222,7 +222,7 @@ total classes attended, and last payment date.
 The `StudentSorter` class contributes to the overall functionality of the application by 
 providing a mechanism to organize and present student information based on user preferences.
 
-### Data Commands Component
+### Data Component
 
 This section refers to `DataHandler`, `DataReader`, and `DataStorage` classes.
 
@@ -240,7 +240,7 @@ The two text files will be created under a directory called data, in which two s
 
 ![DataStoringObjectDiagramUML](./diagrams/src/DataStoring/ObjectDiagram.png)
 
-### Process Component
+### TextFileCode Component
 This section refers to `TextFileHandler`, `TextFileParser`, and `TextFileReader` classes. It ensures that we are able to put new files in the folder in data which is named Input Folder.
 
 #### Design Considerations
@@ -254,7 +254,7 @@ This section refers to `TextFileHandler`, `TextFileParser`, and `TextFileReader`
    * **Checker for same student**: Ensures that we don't have duplicate entries of one student.
    * **Checker for same subject**: Ensures that an existing student does not get duplicate entries of the same subject (Not applicable for new students for obvious reasons).
 
-### Archive Commands Component
+### ArchiveCommands Component
 The `ArchiveCommands` class is responsible for transferring students from the student list to archive list and vice versa, using methods `archiveStudent` and `unarchiveStudent`.
 This class contains the `editStudent` method which is called by `InputParsing` class when user chooses to enter edit mode for a student.
 
@@ -441,7 +441,7 @@ Classify serves as an attempt to modernise administrative tasks in education ins
 #### 2. Adding single or multiple subjects to an existing student
 1. Prerequisites: Add student 'tim' and initiate edit mode for 'tim'.
 2. Test Case: `1`, `CS2113`, `11`, `1`, `no`
-   Expected: 'tim' has subject 'CS2112' with marks '11' and '1' class attended.
+   Expected: 'tim' has subject 'CS2113' with marks '11' and '1' class attended.
 3. Test Case: `1`, `CS2030`, ` `, ` `, `yes`, `CS2040`, ` `, ` `, `no`
    Expected: 'tim' has subjects 'CS2030' and 'CS2040' with no marks and attendance.
 4. Test Case: `1`, ` `
