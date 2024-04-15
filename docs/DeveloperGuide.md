@@ -16,7 +16,6 @@
 - [Project Scope](#product-scope)
    - [User Stories](#user-stories)
    - [Non-Functional Requirements](#non-functional-requirements)
-   - [Glossary](#glossary)
    - [Instructions for manual testing](#instructions-for-manual-testing)
 
 
