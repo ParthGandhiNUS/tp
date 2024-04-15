@@ -268,7 +268,7 @@ The following is a sequence diagram for an example of when `archiveStudent` is c
 #### Implementation and Rationale
 * **Exception Handling**: To prevent duplicate students (especially from a corrupted archive data file), the class uses the `checkNameNumberPair` method and catches `NameNumberMatchException` to catch instances of duplicate students existing in any list in the programme.
 * **File Saving**: Uses the `Data Commands` component to write archive and main student data file whenever `archiveStudent` or `unarchiveStudent` method is called.
----
+
 
 ## Product scope
 
