@@ -457,5 +457,5 @@ Classify serves as an attempt to modernise administrative tasks in education ins
    Expected: Prints error message for no subject found and prompts for another subject name to delete.
 5. Test Case: `4`, `11111111`
    Expected: Prints invalid phone number error message and prompts for another phone number.
-6. Test Case: `6`, `20 jan 2001`
+6. Test Case: `5`, `20 jan 2001`
    Expected: Prints error message for invalid date and prompts for another date.
