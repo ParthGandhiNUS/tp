@@ -410,18 +410,18 @@ Classify serves as an attempt to modernise administrative tasks in education ins
 
 ### Archiving/unarchiving a student
 #### 1. Archiving a student:
-   1. Prerequisites: Add 2 students named 'tim' and 'joe' to the student list.
+   1. Prerequisites: Add 2 students named "tim" and 'joe' to the student list.
    2. Test Case: `archive joe`
    Expected: 'joe' will be removed from student list and will appear in the list of students added to the archive.
    3. Test Case: `archive`, `tim`  
-   Expected: 'tim' will be removed from student list and will appear in the list of students added to the archive.
+   Expected: "tim" will be removed from student list and will appear in the list of students added to the archive.
 
 #### 2. Unarchiving a student:
-   1. Prerequisites: Have 2 students named 'tim' and 'joe' already archived.
+   1. Prerequisites: Have 2 students named "tim" and 'joe' already archived.
    2. Test Case: `unarchive joe`
    Expected: 'joe' will be removed from archive and added back to student list.
    3. Test Case: `unarchive`, `tim`  
-   Expected: 'tim' will be removed from archive and added back to student list.
+   Expected: "tim" will be removed from archive and added back to student list.
 
 #### 3. Archiving/unarchiving student that does not exist:
 1. Prerequisites: Have an empty student list
@@ -432,25 +432,25 @@ Classify serves as an attempt to modernise administrative tasks in education ins
 
 ### Editing a student's details
 #### 1. Entering edit mode for an existing student:
-1. Prerequisites: Add student named 'tim' to the student list with the `add` command.
+1. Prerequisites: Add student named "tim" to the student list with the `add` command.
 2. Test Case: `edit`, `tim`
-   Expected: Name will be prompted first, then edit mode will be initiated for student 'tim'.
+   Expected: Name will be prompted first, then edit mode will be initiated for student "tim".
 3. Test Case: `edit tim`
-   Expected: Edit mode will be initiated for student 'tim'.
+   Expected: Edit mode will be initiated for student "tim".
 
 #### 2. Adding single or multiple subjects to an existing student
-1. Prerequisites: Add student 'tim' and initiate edit mode for 'tim'.
+1. Prerequisites: Add student "tim" and initiate edit mode for "tim".
 2. Test Case: `1`, `CS2113`, `11`, `1`, `no`
-   Expected: 'tim' has subject 'CS2113' with marks '11' and '1' class attended.
+   Expected: "tim" has subject 'CS2113' with marks '11' and '1' class attended.
 3. Test Case: `1`, `CS2030`, ` `, ` `, `yes`, `CS2040`, ` `, ` `, `no`
-   Expected: 'tim' has subjects 'CS2030' and 'CS2040' with no marks and attendance.
+   Expected: "tim" has subjects 'CS2030' and 'CS2040' with no marks and attendance.
 4. Test Case: `1`, ` `
-   Expected: Returns to edit mode for 'tim' and no change in subjects is made for 'tim'.
+   Expected: Returns to edit mode for "tim" and no change in subjects is made for "tim".
 
 #### 3. Testing invalid entries for editing student
-1. Prerequisites: Add student 'tim' with subjects 'CS2113', 'CS2040' and phone number '88888888' and initiate edit mode for 'tim'.
+1. Prerequisites: Add student "tim" with subjects 'CS2113', 'CS2040' and phone number '88888888' and initiate edit mode for "tim".
 2. Test Case: `1`, `cs2113`
-   Expected: Returns to edit mode for 'tim', no new subject added and error message printed for adding existing subject.
+   Expected: Returns to edit mode for "tim", no new subject added and error message printed for adding existing subject.
 3. Test Case: `2`, `CS2113`, `CS2040`
    Expected: Prints error message for existing subject and new subject name is prompted to update 'CS2113'.
 4. Test Case: `3`, `CG2023`
