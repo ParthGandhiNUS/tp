@@ -10,8 +10,8 @@
    - [AddStudent Component](#addstudent-component)
    - [EditStudent Component](#editstudent-component)
    - [StudentSorter Component](#studentsorter-component)
-   - [Data Commands Component](#data-commands-component)
-   - [Process Component](#process-component)
+   - [Data Component](#data-component)
+   - [TextFileCode Component](#textfilecode-component)
    - [ArchiveCommands Component](#archivecommands-component)
 - [Project Scope](#product-scope)
    - [User Stories](#user-stories)
@@ -222,7 +222,7 @@ total classes attended, and last payment date.
 The `StudentSorter` class contributes to the overall functionality of the application by 
 providing a mechanism to organize and present student information based on user preferences.
 
-### Data Commands Component
+### Data Component
 
 This section refers to `DataHandler`, `DataReader`, and `DataStorage` classes.
 
@@ -240,7 +240,7 @@ The two text files will be created under a directory called data, in which two s
 
 ![DataStoringObjectDiagramUML](./diagrams/src/DataStoring/ObjectDiagram.png)
 
-### Process Component
+### TextFileCode Component
 This section refers to `TextFileHandler`, `TextFileParser`, and `TextFileReader` classes. It ensures that we are able to put new files in the folder in data which is named Input Folder.
 
 #### Design Considerations
@@ -412,7 +412,7 @@ Classify serves as an attempt to modernise administrative tasks in education ins
 #### 1. Archiving a student:
    1. Prerequisites: Add 2 students named 'tim' and 'joe' to the student list.
    2. Test Case: `archive joe`
-   </br> Expected: 'joe' will be removed from student list and will appear in the list of students added to the archive.
+   Expected: 'joe' will be removed from student list and will appear in the list of students added to the archive.
    3. Test Case: `archive`, `tim`  
    Expected: 'tim' will be removed from student list and will appear in the list of students added to the archive.
 
@@ -426,7 +426,7 @@ Classify serves as an attempt to modernise administrative tasks in education ins
 #### 3. Archiving/unarchiving student that does not exist:
 1. Prerequisites: Have an empty student list
 2. Test Case: `archive joe`
-   </br> Expected: Error message printed for no student found and prompts for new command.
+   Expected: Error message printed for no student found and prompts for new command.
 3. Test Case: `unarchive`, `tim`  
    Expected: Error message printed for no student found and prompts for new command.
 
@@ -434,28 +434,28 @@ Classify serves as an attempt to modernise administrative tasks in education ins
 #### 1. Entering edit mode for an existing student:
 1. Prerequisites: Add student named 'tim' to the student list with the `add` command.
 2. Test Case: `edit`, `tim`
-<br/> Expected: Name will be prompted first, then edit mode will be initiated for student 'tim'.
+   Expected: Name will be prompted first, then edit mode will be initiated for student 'tim'.
 3. Test Case: `edit tim`
-<br/> Expected: Edit mode will be initiated for student 'tim'.
+   Expected: Edit mode will be initiated for student 'tim'.
 
 #### 2. Adding single or multiple subjects to an existing student
 1. Prerequisites: Add student 'tim' and initiate edit mode for 'tim'.
 2. Test Case: `1`, `CS2113`, `11`, `1`, `no`
-<br/> Expected: 'tim' has subject 'CS2113' with marks '11' and '1' class attended.
+   Expected: 'tim' has subject 'CS2113' with marks '11' and '1' class attended.
 3. Test Case: `1`, `CS2030`, ` `, ` `, `yes`, `CS2040`, ` `, ` `, `no`
-<br/> Expected: 'tim' has subjects 'CS2030' and 'CS2040' with no marks and attendance.
+   Expected: 'tim' has subjects 'CS2030' and 'CS2040' with no marks and attendance.
 4. Test Case: `1`, ` `
-</br> Expected: Returns to edit mode for 'tim' and no change in subjects is made for 'tim'.
+   Expected: Returns to edit mode for 'tim' and no change in subjects is made for 'tim'.
 
 #### 3. Testing invalid entries for editing student
 1. Prerequisites: Add student 'tim' with subjects 'CS2113', 'CS2040' and phone number '88888888' and initiate edit mode for 'tim'.
 2. Test Case: `1`, `cs2113`
-</br> Expected: Returns to edit mode for 'tim', no new subject added and error message printed for adding existing subject.
+   Expected: Returns to edit mode for 'tim', no new subject added and error message printed for adding existing subject.
 3. Test Case: `2`, `CS2113`, `CS2040`
-</br> Expected: Prints error message for existing subject and new subject name is prompted to update 'CS2113'.
+   Expected: Prints error message for existing subject and new subject name is prompted to update 'CS2113'.
 4. Test Case: `3`, `CG2023`
-</br> Expected: Prints error message for no subject found and prompts for another subject name to delete.
+   Expected: Prints error message for no subject found and prompts for another subject name to delete.
 5. Test Case: `4`, `11111111`
-</br> Expected: Prints invalid phone number error message and prompts for another phone number.
-6. Test Case: `6`, `20 jan 2001`
-</br> Expected: Prints error message for invalid date and prompts for another date.
+   Expected: Prints invalid phone number error message and prompts for another phone number.
+6. Test Case: `5`, `20 jan 2001`
+   Expected: Prints error message for invalid date and prompts for another date.
