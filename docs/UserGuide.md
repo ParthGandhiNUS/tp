@@ -160,7 +160,7 @@ Exits the program.
 
 # Usage
 
-**Please note that if any of the following characters are entered in any string prompts, `#, - and ~`, they will be replaced and your command may be deemed invalid.**
+**Please note that any of the following characters are banned in any string prompts, `#, -`  and `~` in all fields except for the date of payment field.**
 
 ### Adding a student: `add`
 Initialises an interface for adding a student and their relevant details to the database. Allows the user to do add or add [name]
@@ -228,7 +228,7 @@ He likes turtles
 Student added successfully!
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ```
-For any student that exists within the programme's master, archive and recently deleted list, the user cannot add new students with a name-phone number pair that matches that of the existing student.
+For any student that exists within the program's master, archive and recently deleted list, the user cannot add new students with a name-phone number pair that matches that of the existing student.
 
 The following is an example of trying to add a new student that matches the name and phone number of an already existing student.
 
@@ -277,6 +277,8 @@ Current marks out of 100: 100.0
 Classes Attended: 1
 ```
 
+Note that if 2 people of the same name are present in the list, the program will prompt the user to differentiate them through a choice between the available phone numbers tagged to them.
+
 
 ### Delete a student from the working list `delete`
 Deletes the student from the list. Allows the user to do delete [student] or just delete.
@@ -302,7 +304,7 @@ Edit a student's details and subjects. Allows the user to do edit [student] or j
 **Format:** `edit` or `edit NAME`
 
 If user has not entered a name, they will be prompted to input a name.
-Once programme received name input, the student master list will be searched for the name. Name search is not case-sensitive.
+Once program received name input, the student master list will be searched for the name. Name search is not case-sensitive.
 
 If the name input matches that of an existing student, edit mode will be entered for that student.
 If 2 students with the same name is found, the user will be prompted to enter the desired student's phone number to select them.
@@ -359,7 +361,7 @@ Do you want to add another subject and grade? (yes/no)
 >> no
 
 ```
-If no student is found in the master student list, edit mode will not be entered and the programme will resume as per normal.
+If no student is found in the master student list, edit mode will not be entered and the program will resume as per normal.
 
 
 #### No student found to edit:
@@ -369,7 +371,10 @@ Name of student to edit (blank to exit):
 luigi
 No student found to edit!
 ```
+
+Similar to View Student, if the there are 2 or more students with the same name, the program would prompt the user to input the corresponding phone number of the student that they would like to edit.
 <div style="page-break-after: always;"></div>
+
 
 ### Restore a student to the working list `restore`
 Restores a student deleted in the current session. Allows the user to do restore [student] or just restore.
@@ -423,6 +428,9 @@ Alternatively, the user can choose to display either the students in the recentl
 Do note that there is a difference between 0 and no classes attended found. If the program displays 0 classes attended,
 it means that the user entered the field 0 when adding the student. 
 If it says no classes found, it means the user skipped that field when adding the student.
+
+Important: If the input is invalid in the indexed portion of the list, e.g. the user types in `6`, `hello` or presses `enter`, the
+list command would terminate.
 
 #### Example usage:
 ```
