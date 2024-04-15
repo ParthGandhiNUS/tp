@@ -4,7 +4,7 @@
 - [Acknowledgements](#acknowledgements)
 - [Overall Design and Implementation](#overall-design-and-implementation)
 - [Project Components](#project-components)
-   - [Ui component](#ui-component)
+   - [UI component](#ui-component)
    - [InputParsing component](#inputparsing-component)
    - [Student Details](#student-details)
    - [AddStudent Component](#addstudent-component)
@@ -12,6 +12,7 @@
    - [StudentSorter Component](#studentsorter-component)
    - [Data Commands Component](#data-commands-component)
    - [Process Component](#process-component)
+   - [ArchiveCommands Component](#archivecommands-component)
 - [Project Scope](#product-scope)
    - [User Stories](#user-stories)
    - [Non-Functional Requirements](#non-functional-requirements)
@@ -37,19 +38,17 @@ Do note that the Classify class is the "main" class in the diagram, with all oth
 
 ## Project Components
 
-### Ui component
+### UI component
 
-The `Ui` class handles message output for the user within the terminal.
-
-The `UI`component,
-- stores message output strings for user feedback
-- holds methods for printing messages to be called by other classes, such as `InputParsing`.
+The `UI` class handles message output for the user within the terminal.
+- Stores message output strings for user feedback
+- Holds methods for printing messages to be called by other classes, such as `InputParsing`.
 
 #### Design considerations
 
-Being a CLI application, UI/UX is minimal and user IO is confined within the terminal.
+* Being a CLI application, UI/UX should be minimal and user IO should be confined within the terminal.
 
-Hence, public methods within the`Ui` class are static for easy access by other classes, without the need to instantiate an instance of the `Ui` class to call.
+* public methods within the `UI` class are static for easy access by other classes, without the need to instantiate an instance of the `UI` class to call.
 
 ### InputParsing component
 
@@ -61,7 +60,7 @@ This component ensures that the user parses in commands in a format that makes s
 - The parser must be effective in breaking down the user's input into its constituent commands, with further breakdown if an associated argument is added.
 - The parser should be quick and effective in understanding the user's input, with simple prompts given to help the user in correctly parsing the command through the input parser.
 - Allowing the user to input optional arguments. For example, the user could type `view <student name>`, which takes in the "student name" as an optional argument. This is to increase the robustness of the program, which accounts for the two types of users, one who just types in `view`, and the other as formerly mentioned above. 
-- Error handling must be intuitive for the user, so that appropriate error messages are produced if the user does not input a valid command. The error handling should also be robust, to account for the event a user is incapable in following instructions.
+- Error handling must be intuitive for the user, so that appropriate error messages are produced if the user does not input a valid command. The error handling should also be robust, to account for the event a user is incapable of following instructions.
 
 #### Implementation and rationale
 
@@ -69,7 +68,7 @@ This component ensures that the user parses in commands in a format that makes s
 
 The InputParsing class is designed to handle the considerations above by breaking down the input given by the user in a well structured process. Below is how the InputParsing class works:
 
-1. Splitting User Input: The Parser would take on the user's input and split it into 2 parts, which is the command and the argument, if any. this is done by the `UserInput` Class
+1. Splitting User Input: The Parser would take in the user's input and split it into 2 parts, command and argument, if any. This is done using the `UserInput` Class.
    
 2. Command recognition: Depending on the command and the argument given, if any, the parser would execute the command as per defined by the program. If the command and/or argument given is invalid/undefined, the input parser would generate a message to the user, informing them of the command's invalidity. This is done by the `InputParsing` Class.
 
@@ -225,7 +224,7 @@ providing a mechanism to organize and present student information based on user 
 
 ### Data Commands Component
 
-This section refers to `DataHandler.java`, `DataReader.java`, and `DataStorage.java` classes.
+This section refers to `DataHandler`, `DataReader`, and `DataStorage` classes.
 
 We have currently implemented a basic data handler which has the abilities to store a student's name into a text file.
 
@@ -235,14 +234,14 @@ Currently there is a polling system set in place where every change in the list 
 
 As stated above, all the names and attributes associated with each student will be saved to the main text file, named Student_Information.txt.
 
-If the user chooses to delete or archive a student, it would be saved to an archive file, named student_archive.txt. If the user chooses to unarchive a student or undo a recent deletion, it will be brought back to the main text file.
+If the user chooses to archive a student, it would be saved to an archive file, named student_archive.txt. If the user chooses to unarchive a student, the student will be re-added to the student list and consequently be written to the main text file.
 
 The two text files are will be created under a directory called data, in which two separate file paths will be created if it is not already found on the user's desktop. 
 
 ![DataStoringObjectDiagramUML](./diagrams/src/DataStoring/ObjectDiagram.png)
 
 ### Process Component
-This section refers to `TextFileHandler.java`, `TextFileParser.java`, and `TextFileReader.java` classes. It ensures that we are able to put new files in the folder in data which is named Input Folder.
+This section refers to `TextFileHandler`, `TextFileParser`, and `TextFileReader` classes. It ensures that we are able to put new files in the folder in data which is named Input Folder.
 
 #### Design Considerations
    * Support for adding multiple students taking the same class/subject at once
@@ -255,7 +254,20 @@ This section refers to `TextFileHandler.java`, `TextFileParser.java`, and `TextF
    * **Checker for same student**: Ensures that we dont have duplicate entries of one student.
    * **Checker for same subject**: Ensures that an existing student does not get duplicate entries of the same subject (Not applicable for new students for obvious reasons)
 
+### ArchiveCommands Component
+The `ArchiveCommands` class is responsible for transferring students from the student list to archive list and vice versa, using methods `archiveStudent` and `unarchiveStudent`.
+This class contains the `editStudent` method which is called by `InputParsing` class when user chooses to enter edit mode for a student.
 
+The following is a sequence diagram for an example of when `archiveStudent` is called to move a student from the student list to archive.
+
+![ArchiveCommandsSequenceDiagram](./diagrams/src/ArchiveCommands/ArchiveCommands.PNG)
+#### Design Considerations
+* To always update data into archive and student data file whenever there is change in student or archive list.
+* Have proper checks whenever student is archived or unarchived to ensure there are no duplicate students amongst all student lists.
+
+#### Implementation and Rationale
+* **Exception Handling**: To prevent duplicate students (especially from corrupted archive data file), the class uses the `checkNameNumberPair` method and catches `NameNumberMatchException` to catch instances of duplicate students existing in any list in the programme.
+* **File Saving**: Uses the `Data Commands` component to write archive and main student data file whenever `archiveStudent` or `unarchiveStudent` method is called.
 ---
 
 ## Product scope
@@ -317,17 +329,16 @@ Classify serves as an attempt to modernise administrative tasks in education ins
    - File saving should done whenever a change has been made to the Master List.
 
 ## Glossary
-
-* *glossary item* - Definition
+* *` `*  - Refers to empty user input, where user just presses `enter` key.   
 
 ## Instructions for manual testing
 
 ### Adding a student to the student list
 1. Adding a student with a name and phone number only
-   1. Prerequisites: View if a student with the name `joe` and phone number `88888888` exists by using the `view joe` command.
+   1. Prerequisites: View if a student with the name 'joe' and phone number '88888888' exists by using the `view joe` command.
    2. Test case: `add joe` and when prompted for phone number enter `88888888`, while pressing enter to skip other optional fields.
    <br /> 
-   Expected: `view joe` now shows the Student details of a student with Name: joe, Phone Number: 11111111.
+   Expected: `view joe` now shows the Student details of a student with Name: joe, Phone Number: 88888888.
    <br />
    Other fields that were left blank will reflect 'Unknown' or for date fields, today's date.
    3. Test case: `add` and when prompted for Name, `joe`. `88888888` when prompted for phone number, press enter to skip other fields.
@@ -336,16 +347,16 @@ Classify serves as an attempt to modernise administrative tasks in education ins
    
 ### Viewing a student's details
 1. View a student who has been added to the student list
-   1. Prerequisites: Add one student named `joe` to the list with the `add` command
+   1. Prerequisites: Add one student named 'joe' to the list with the `add` command
    2. Test case: `view joe`<br />
    Expected: Student's details shown correspond to the details input when `add` was used to add a student.
 
 ### Deleting a student from the student list
 1. Deleting a student that exists in the student list
-   1. Prerequisites: Add one student named `joe` to the list with the `add` command
+   1. Prerequisites: Add one student named 'joe' to the list with the `add` command
    2. Test case: `delete joe`<br />
    Expected: `view joe` shows Student not found!<br />
-   `list` followed by enter, enter again, and `1` which displays a list of all students, does not show any student named `joe`.
+   `list` followed by enter, enter again, and `1` which displays a list of all students, does not show any student named 'joe'.
 
 ### Displaying a list of students
 1. Listing all students enrolled in the tuition centre
@@ -354,9 +365,9 @@ Classify serves as an attempt to modernise administrative tasks in education ins
    Expected: A list of all students that are enrolled in the tuition centre is printed.
    <br />
 2. Listing all students with a specific subject in the tuition centre
-   1. Prerequisites: Have at least one student with the subject `Math` added to the list with the `add` command
+   1. Prerequisites: Have at least one student with the subject 'Math' added to the list with the `add` command
    2. Test case: `list`, `Math`<br />
-   Expected: A list of all the students with the subject `Math` in the tuition centre is printed.
+   Expected: A list of all the students with the subject 'Math' in the tuition centre is printed.
    <br />
 3. Listing all students that have been deleted in the current session
    1. Prerequisites: Delete at least one student in the list with the `delete` command
@@ -377,19 +388,19 @@ Classify serves as an attempt to modernise administrative tasks in education ins
 3. Ingesting a full list of Students using a Text File (without using file extension)
    1. Prerequisites: Have at least one text file in the inputFolder in Data. The text file present (eg. **File.txt**) is properly formatted according to the requirements stated in the User Guide and is present in the inputFolder.
    2. Test case: `Process`, enter, **`File`**
-   Expected: `Fetching the data from File.txt.` will be displayed. Can use the `list`, enter,enter,`1` to ensure that all the students in the file are added.
+   Expected: `Fetching the data from File.txt.` will be displayed. Can use the `list`, ` `, ` `, `1` to ensure that all the students in the file are added.
 
 4. Ingesting a full list of Students using a Text File (using file extension)
    1. Prerequisites: Have at least one text file in the inputFolder in Data. The text file present (eg. **File.txt**) is properly formatted according to the requirements stated in the User Guide and is present in the inputFolder.
    2. Test case: `Process`, enter, **`File.txt`**
-   Expected: `Fetching the data from File.txt.` will be displayed. Can use the `list`, enter,enter,`1` to ensure that all the students in the file are added. 
+   Expected: `Fetching the data from File.txt.` will be displayed. Can use the `list`, ` `, ` `, `1` to ensure that all the students in the file are added. 
 
 ### Restoring a recently deleted student
 1. Restore a student from the recently deleted list
-   1. Prerequisites: Have at least one student named `joe` deleted in the current session with the `delete joe` command
+   1. Prerequisites: Have at least one student named 'joe' deleted in the current session with the `delete joe` command
    2. Test case: `restore joe`<br /> 
-   Expected: `view joe` will display the attributes that `joe` had before being deleted.<br />
-   `joe` will be shown in any lists that specify attributes they possess.
+   Expected: `view joe` will display the attributes that 'joe' had before being deleted.<br />
+   'joe' will be shown in any lists that specify attributes they possess.
              
 ### Undoing the latest deletion
 1. Undo two deletes successively
@@ -401,23 +412,23 @@ Classify serves as an attempt to modernise administrative tasks in education ins
 #### 1. Archiving a student:
    1. Prerequisites: Add 2 students named 'tim' and 'joe' to the student list.
    2. Test Case: `archive joe`
-   </br> Expected: `joe` will be removed from student list and will appear in the list of students added to the archive.
+   </br> Expected: 'joe' will be removed from student list and will appear in the list of students added to the archive.
    3. Test Case: `archive`, `tim`  
-   </br> Expected: `tim` will be removed from student list and will appear in the list of students added to the archive.
+   Expected: 'tim' will be removed from student list and will appear in the list of students added to the archive.
 
 #### 2. Unarchiving a student:
    1. Prerequisites: Have 2 students named 'tim' and 'joe' already archived.
    2. Test Case: `unarchive joe`
-   </br> Expected: `joe` will be removed from archive and added back to student list.
+   Expected: 'joe' will be removed from archive and added back to student list.
    3. Test Case: `unarchive`, `tim`  
-   </br> Expected: `tim` will be removed from archive and added back to student list.
+   Expected: 'tim' will be removed from archive and added back to student list.
 
 #### 3. Archiving/unarchiving student that does not exist:
 1. Prerequisites: Have an empty student list
 2. Test Case: `archive joe`
    </br> Expected: Error message printed for no student found and prompts for new command.
 3. Test Case: `unarchive`, `tim`  
-   </br> Expected: Error message printed for no student found and prompts for new command.
+   Expected: Error message printed for no student found and prompts for new command.
 
 ### Editing a student's details
 #### 1. Entering edit mode for an existing student:

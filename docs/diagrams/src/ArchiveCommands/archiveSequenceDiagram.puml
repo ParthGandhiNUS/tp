@@ -1,0 +1,21 @@
+@startuml
+title Sequence Diagram: Calling editStudent and editing gender
+
+actor User
+participant "InputParsing" as InputParsing <<class>>
+participant "ArchiveCommands" as ArchiveCommands<<class>>
+activate StudentList
+activate ArchiveCommands
+activate InputParsing
+
+User->InputParsing: String: ARCHIVE
+"InputParsing"->"ArchiveCommands": archiveStudent()
+User-> ArchiveCommands: String: NAME
+ArchiveCommands -> StudentList: getStudent(NAME)
+ArchiveCommands <-- StudentList: Student:student
+ArchiveCommands -> StudentList: masterList.remove(student)
+ArchiveCommands -> StudentList: archiveList.add(student)
+deactivate ArchiveCommands
+deactivate StudentList
+hide footbox
+@enduml
