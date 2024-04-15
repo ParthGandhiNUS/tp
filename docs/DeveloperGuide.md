@@ -327,10 +327,7 @@ Classify serves as an attempt to modernise administrative tasks in education ins
    - Logging and monitoring mechanisms should be in place to track system usage and identify potential issues.
 
 7. **Data Management**:
-   - File saving should be done whenever a change has been made to the Master List.
-
-## Glossary
-* *` `*  - Refers to empty user input, where user just presses `enter` key.   
+   - File saving should be done whenever a change has been made to the Master List.  
 
 ## Instructions for manual testing
 
@@ -389,12 +386,12 @@ Classify serves as an attempt to modernise administrative tasks in education ins
 3. Ingesting a full list of Students using a Text File (without using file extension)
    1. Prerequisites: Have at least one text file in the inputFolder in Data. The text file present (e.g. **File.txt**) is properly formatted according to the requirements stated in the User Guide and is present in the inputFolder.
    2. Test case: `Process`, enter, **`File`**
-   Expected: `Fetching the data from File.txt.` will be displayed. Can use the `list`, ` `, ` `, `1` to ensure that all the students in the file are added.
+   Expected: `Fetching the data from File.txt.` will be displayed. Can use the `list`, `enter`, `enter`, `1` to ensure that all the students in the file are added.
 
 4. Ingesting a full list of Students using a Text File (using file extension)
    1. Prerequisites: Have at least one text file in the inputFolder in Data. The text file present (e.g. **File.txt**) is properly formatted according to the requirements stated in the User Guide and is present in the inputFolder.
    2. Test case: `Process`, enter, **`File.txt`**
-   Expected: `Fetching the data from File.txt.` will be displayed. Can use the `list`, ` `, ` `, `1` to ensure that all the students in the file are added. 
+   Expected: `Fetching the data from File.txt.` will be displayed. Can use the `list`, `enter`, `enter`, `1` to ensure that all the students in the file are added. 
 
 ### Restoring a recently deleted student
 1. Restore a student from the recently deleted list
@@ -443,9 +440,9 @@ Classify serves as an attempt to modernise administrative tasks in education ins
 1. Prerequisites: Add student "tim" and initiate edit mode for "tim".
 2. Test Case: `1`, `CS2113`, `11`, `1`, `no`
    Expected: "tim" has subject 'CS2113' with marks '11' and '1' class attended.
-3. Test Case: `1`, `CS2030`, ` `, ` `, `yes`, `CS2040`, ` `, ` `, `no`
+3. Test Case: `1`, `CS2030`, `enter`, `enter`, `yes`, `CS2040`, `enter`, `enter`, `no`
    Expected: "tim" has subjects 'CS2030' and 'CS2040' with no marks and attendance.
-4. Test Case: `1`, ` `
+4. Test Case: `1`, `enter`
    Expected: Returns to edit mode for "tim" and no changes in subjects are made for "tim".
 
 #### 3. Testing invalid entries for editing student
