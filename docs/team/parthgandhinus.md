@@ -59,6 +59,7 @@ Overall, the code base has more than 7000 Lines of Code, and is written in Java.
     * Wrote out the workflow for Process and Data commands in DG
     * Made the table of contents for the DG
     * Assisted in the various UML Diagrams
+    * Added manual testing cases for Process Command
 
 ---
 
