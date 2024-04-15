@@ -260,7 +260,7 @@ This class contains the `editStudent` method which is called by `InputParsing` c
 
 The following is a sequence diagram for an example of when `archiveStudent` is called to move a student from the student list to archive.
 
-![ArchiveCommandsSequenceDiagram](./diagrams/src/ArchiveCommands/ArchiveCommands.PNG)
+![ArchiveCommandsSequenceDiagram](./diagrams/src/ArchiveCommands/ArchiveCommands.png)
 #### Design Considerations
 * To always update data into archive and student data file whenever there is change in student or archive list.
 * Have proper checks whenever student is archived or unarchived to ensure there are no duplicate students amongst all student lists.
@@ -441,7 +441,7 @@ Classify serves as an attempt to modernise administrative tasks in education ins
 #### 2. Adding single or multiple subjects to an existing student
 1. Prerequisites: Add student 'tim' and initiate edit mode for 'tim'.
 2. Test Case: `1`, `CS2113`, `11`, `1`, `no`
-<br/> Expected: 'tim' has subject 'CS2112' with marks '11' and '1' class attended.
+<br/> Expected: 'tim' has subject 'CS2113' with marks '11' and '1' class attended.
 3. Test Case: `1`, `CS2030`, ` `, ` `, `yes`, `CS2040`, ` `, ` `, `no`
 <br/> Expected: 'tim' has subjects 'CS2030' and 'CS2040' with no marks and attendance.
 4. Test Case: `1`, ` `
