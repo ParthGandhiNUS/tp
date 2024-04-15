@@ -192,7 +192,6 @@ Last payment date must be within a range from 1970-01-01 to the day after the cu
 
 The gender field and remarks section are optional, hence if the user presses `enter`, they would proceed with the next command or end the add student interface respectively.
 
-<div style="page-break-after: always;"></div>
 
 #### Example usage:
 ``` 
