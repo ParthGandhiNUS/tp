@@ -300,6 +300,7 @@ Classify serves as an attempt to modernise administrative tasks in education ins
 |v2.0|existing user|sort all students by classes attended|track who will likely score the highest in their national examinations.
 |v2.0|existing user|edit subject details for students|stop tracking these subjects when they are no longer being taken.
 |v2.0|existing user|sort students by their subjects taken|know who exactly are taking those subjects
+|v2.1|existing user|add students with the same subject and classes attended|add a list of students taking the same class
 
 
 ## Non-Functional Requirements
