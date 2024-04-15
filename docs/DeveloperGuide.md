@@ -268,7 +268,7 @@ The following is a sequence diagram for an example of when `archiveStudent` is c
 #### Implementation and Rationale
 * **Exception Handling**: To prevent duplicate students (especially from a corrupted archive data file), the class uses the `checkNameNumberPair` method and catches `NameNumberMatchException` to catch instances of duplicate students existing in any list in the programme.
 * **File Saving**: Uses the `Data Commands` component to write archive and main student data file whenever `archiveStudent` or `unarchiveStudent` method is called.
----
+
 
 ## Product scope
 
@@ -327,10 +327,7 @@ Classify serves as an attempt to modernise administrative tasks in education ins
    - Logging and monitoring mechanisms should be in place to track system usage and identify potential issues.
 
 7. **Data Management**:
-   - File saving should be done whenever a change has been made to the Master List.
-
-## Glossary
-* *` `*  - Refers to empty user input, where user just presses `enter` key.   
+   - File saving should be done whenever a change has been made to the Master List.  
 
 ## Instructions for manual testing
 
@@ -389,12 +386,12 @@ Classify serves as an attempt to modernise administrative tasks in education ins
 3. Ingesting a full list of Students using a Text File (without using file extension)
    1. Prerequisites: Have at least one text file in the inputFolder in Data. The text file present (e.g. **File.txt**) is properly formatted according to the requirements stated in the User Guide and is present in the inputFolder.
    2. Test case: `Process`, enter, **`File`**
-   Expected: `Fetching the data from File.txt.` will be displayed. Can use the `list`, ` `, ` `, `1` to ensure that all the students in the file are added.
+   Expected: `Fetching the data from File.txt.` will be displayed. Can use the `list`, `enter`, `enter`, `1` to ensure that all the students in the file are added.
 
 4. Ingesting a full list of Students using a Text File (using file extension)
    1. Prerequisites: Have at least one text file in the inputFolder in Data. The text file present (e.g. **File.txt**) is properly formatted according to the requirements stated in the User Guide and is present in the inputFolder.
    2. Test case: `Process`, enter, **`File.txt`**
-   Expected: `Fetching the data from File.txt.` will be displayed. Can use the `list`, ` `, ` `, `1` to ensure that all the students in the file are added. 
+   Expected: `Fetching the data from File.txt.` will be displayed. Can use the `list`, `enter`, `enter`, `1` to ensure that all the students in the file are added. 
 
 ### Restoring a recently deleted student
 1. Restore a student from the recently deleted list
@@ -443,10 +440,10 @@ Classify serves as an attempt to modernise administrative tasks in education ins
 1. Prerequisites: Add student 'tim' and initiate edit mode for 'tim'.
 2. Test Case: `1`, `CS2113`, `11`, `1`, `no`
    Expected: 'tim' has subject 'CS2113' with marks '11' and '1' class attended.
-3. Test Case: `1`, `CS2030`, ` `, ` `, `yes`, `CS2040`, ` `, ` `, `no`
+3. Test Case: `1`, `CS2030`, `enter`, `enter`, `yes`, `CS2040`, `enter`, `enter`, `no`
    Expected: 'tim' has subjects 'CS2030' and 'CS2040' with no marks and attendance.
-4. Test Case: `1`, ` `
-   Expected: Returns to edit mode for 'tim' and no change in subjects is made for 'tim'.
+4. Test Case: `1`, `enter`
+   Expected: Returns to edit mode for 'tim' and no changes in subjects are made for 'tim'.
 
 #### 3. Testing invalid entries for editing student
 1. Prerequisites: Add student 'tim' with subjects 'CS2113', 'CS2040' and phone number '88888888' and initiate edit mode for 'tim'.
@@ -458,5 +455,5 @@ Classify serves as an attempt to modernise administrative tasks in education ins
    Expected: Prints error message for no subject found and prompts for another subject name to delete.
 5. Test Case: `4`, `11111111`
    Expected: Prints invalid phone number error message and prompts for another phone number.
-6. Test Case: `5`, `20 jan 2001`
+6. Test Case: `6`, `20 jan 2001`
    Expected: Prints error message for invalid date and prompts for another date.
