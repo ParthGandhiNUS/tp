@@ -371,7 +371,6 @@ No student found to edit!
 ```
 
 Similar to View Student, if the there are 2 or more students with the same name, the program would prompt the user to input the corresponding phone number of the student that they would like to edit.
-<div style="page-break-after: always;"></div>
 
 
 ### Restore a student to the working list `restore`
