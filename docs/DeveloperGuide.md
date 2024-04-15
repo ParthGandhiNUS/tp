@@ -445,7 +445,7 @@ Classify serves as an attempt to modernise administrative tasks in education ins
 3. Test Case: `1`, `CS2030`, ` `, ` `, `yes`, `CS2040`, ` `, ` `, `no`
    Expected: "tim" has subjects 'CS2030' and 'CS2040' with no marks and attendance.
 4. Test Case: `1`, ` `
-   Expected: Returns to edit mode for "tim" and no change in subjects is made for "tim".
+   Expected: Returns to edit mode for "tim" and no changes in subjects are made for "tim".
 
 #### 3. Testing invalid entries for editing student
 1. Prerequisites: Add student "tim" with subjects 'CS2113', 'CS2040' and phone number '88888888' and initiate edit mode for "tim".
