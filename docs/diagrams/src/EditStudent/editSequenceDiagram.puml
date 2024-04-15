@@ -1,5 +1,5 @@
 @startuml
-title Sequence Diagram: Calling editStudent and editing subject
+title Sequence Diagram: Calling editStudent and editing gender
 
 actor User
 participant "InputParsing" as InputParsing <<class>>
