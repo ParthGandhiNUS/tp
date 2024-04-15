@@ -260,7 +260,7 @@ This class contains the `editStudent` method which is called by `InputParsing` c
 
 The following is a sequence diagram for an example of when `archiveStudent` is called to move a student from the student list to archive.
 
-![ArchiveCommandsSequenceDiagram](./diagrams/src/ArchiveCommands/ArchiveCommands.PNG)
+![ArchiveCommandsSequenceDiagram](./diagrams/src/ArchiveCommands/ArchiveCommands.png)
 #### Design Considerations
 * To always update data into archive and student data file whenever there is change in student or archive list.
 * Have proper checks whenever student is archived or unarchived to ensure there are no duplicate students amongst all student lists.
