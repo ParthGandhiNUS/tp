@@ -64,9 +64,9 @@ This component ensures that the user parses in commands in a format that makes s
 
 #### Implementation and rationale
 
-![InputParsingSequenceDigram](./diagrams/src/InputParsing/InputParsingSequenceDiagram.png)
+![InputParsingSequenceDiagram](./diagrams/src/InputParsing/InputParsingSequenceDiagram.png)
 
-The InputParsing class is designed to handle the considerations above by breaking down the input given by the user in a well structured process. Below is how the InputParsing class works:
+The InputParsing class is designed to handle the considerations above by breaking down the input given by the user in a well-structured process. Below is how the InputParsing class works:
 
 1. Splitting User Input: The Parser would take in the user's input and split it into 2 parts, command and argument, if any. This is done using the `UserInput` Class.
    
@@ -82,7 +82,7 @@ The InputParsing class uses the method below to achieve its functionality:
   
 This method takes in the user's input as the userCommand, the master student list, a list of the recently deleted students and the next input as parameters, which then proceeds with executing the command as associated with the user's input.
 
-Given below is an example of how a user may add a student to the data base. 
+Given below is an example of how a user may add a student to the database. 
 
 - Suppose the user types in the command `add wario`. The parser first splits the input into two, checking for the command and the argument.
 - It then recognises the `add` command, which then further checks if there is an argument given.
@@ -97,7 +97,7 @@ All the while these commands are being processed, the runtime database `masterSt
 
 To facilitate the management of students within a tuition centre, it is imperative to have easy access and storage of important information regarding said personnel.
 
-Seen below is an UML diagram of the relevant classes dealing with storing a student's details within the program runtime.
+Seen below is a UML diagram of the relevant classes dealing with storing a student's details within the program runtime.
 
 This text file would have the details of the student's name and their attributes, in the following order: subject, grade, classes taken for that subject, phone number, last paid date and remarks.
 
@@ -230,13 +230,13 @@ We have currently implemented a basic data handler which has the abilities to st
 
 This text file is created locally on the users' computer for easy access and retrieval.
 
-Currently there is a polling system set in place where every change in the list of students (eg, addition, deletion, modification) would override the current working text file on the users' computer.
+Currently, there is a polling system set in place where every change in the list of students (eg, addition, deletion, modification) will override the current working text file on the users' computer.
 
 As stated above, all the names and attributes associated with each student will be saved to the main text file, named Student_Information.txt.
 
 If the user chooses to archive a student, it would be saved to an archive file, named student_archive.txt. If the user chooses to unarchive a student, the student will be re-added to the student list and consequently be written to the main text file.
 
-The two text files are will be created under a directory called data, in which two separate file paths will be created if it is not already found on the user's desktop. 
+The two text files will be created under a directory called data, in which two separate file paths will be created if it is not already found on the user's desktop. 
 
 ![DataStoringObjectDiagramUML](./diagrams/src/DataStoring/ObjectDiagram.png)
 
@@ -246,13 +246,13 @@ This section refers to `TextFileHandler`, `TextFileParser`, and `TextFileReader`
 #### Design Considerations
    * Support for adding multiple students taking the same class/subject at once
    * Need to take down students' name and phone number as these are used to prevent duplicate entries in masterStudentList
-   * Need to have a different parser to make it easy for the users to add many studetns 
+   * Need to have a different parser to make it easy for the users to add many students 
 
 #### Implementation and Rationale
-   * **Standardised Subject and Classes Attended**: Simplify adding users in text file for user
-   * **Common Regex**: Using " ~~ " to separate all other attributes like Student Name, Phone Number and Grade ensures it is easy for the user to add many students
-   * **Checker for same student**: Ensures that we dont have duplicate entries of one student.
-   * **Checker for same subject**: Ensures that an existing student does not get duplicate entries of the same subject (Not applicable for new students for obvious reasons)
+   * **Standardised Subject and Classes Attended**: Simplify adding users in text file for user.
+   * **Common Regex**: Using " ~~ " to separate all other attributes like Student Name, Phone Number and Grade ensures it is easy for the user to add many students.
+   * **Checker for same student**: Ensures that we don't have duplicate entries of one student.
+   * **Checker for same subject**: Ensures that an existing student does not get duplicate entries of the same subject (Not applicable for new students for obvious reasons).
 
 ### ArchiveCommands Component
 The `ArchiveCommands` class is responsible for transferring students from the student list to archive list and vice versa, using methods `archiveStudent` and `unarchiveStudent`.
@@ -266,7 +266,7 @@ The following is a sequence diagram for an example of when `archiveStudent` is c
 * Have proper checks whenever student is archived or unarchived to ensure there are no duplicate students amongst all student lists.
 
 #### Implementation and Rationale
-* **Exception Handling**: To prevent duplicate students (especially from corrupted archive data file), the class uses the `checkNameNumberPair` method and catches `NameNumberMatchException` to catch instances of duplicate students existing in any list in the programme.
+* **Exception Handling**: To prevent duplicate students (especially from a corrupted archive data file), the class uses the `checkNameNumberPair` method and catches `NameNumberMatchException` to catch instances of duplicate students existing in any list in the programme.
 * **File Saving**: Uses the `Data Commands` component to write archive and main student data file whenever `archiveStudent` or `unarchiveStudent` method is called.
 ---
 
@@ -326,7 +326,7 @@ Classify serves as an attempt to modernise administrative tasks in education ins
    - Logging and monitoring mechanisms should be in place to track system usage and identify potential issues.
 
 7. **Data Management**:
-   - File saving should done whenever a change has been made to the Master List.
+   - File saving should be done whenever a change has been made to the Master List.
 
 ## Glossary
 * *` `*  - Refers to empty user input, where user just presses `enter` key.   
@@ -386,12 +386,12 @@ Classify serves as an attempt to modernise administrative tasks in education ins
    Should be redirected to the main commands menu.
 
 3. Ingesting a full list of Students using a Text File (without using file extension)
-   1. Prerequisites: Have at least one text file in the inputFolder in Data. The text file present (eg. **File.txt**) is properly formatted according to the requirements stated in the User Guide and is present in the inputFolder.
+   1. Prerequisites: Have at least one text file in the inputFolder in Data. The text file present (e.g. **File.txt**) is properly formatted according to the requirements stated in the User Guide and is present in the inputFolder.
    2. Test case: `Process`, enter, **`File`**
    Expected: `Fetching the data from File.txt.` will be displayed. Can use the `list`, ` `, ` `, `1` to ensure that all the students in the file are added.
 
 4. Ingesting a full list of Students using a Text File (using file extension)
-   1. Prerequisites: Have at least one text file in the inputFolder in Data. The text file present (eg. **File.txt**) is properly formatted according to the requirements stated in the User Guide and is present in the inputFolder.
+   1. Prerequisites: Have at least one text file in the inputFolder in Data. The text file present (e.g. **File.txt**) is properly formatted according to the requirements stated in the User Guide and is present in the inputFolder.
    2. Test case: `Process`, enter, **`File.txt`**
    Expected: `Fetching the data from File.txt.` will be displayed. Can use the `list`, ` `, ` `, `1` to ensure that all the students in the file are added. 
 
