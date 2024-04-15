@@ -12,7 +12,7 @@
    - [StudentSorter Component](#studentsorter-component)
    - [Data Commands Component](#data-commands-component)
    - [Process Component](#process-component)
-   - [Archive Commands Component](#archivecommands-component)
+   - [Archive Commands Component](#archive-commands-component)
 - [Project Scope](#product-scope)
    - [User Stories](#user-stories)
    - [Non-Functional Requirements](#non-functional-requirements)
@@ -254,7 +254,7 @@ This section refers to `TextFileHandler`, `TextFileParser`, and `TextFileReader`
    * **Checker for same student**: Ensures that we don't have duplicate entries of one student.
    * **Checker for same subject**: Ensures that an existing student does not get duplicate entries of the same subject (Not applicable for new students for obvious reasons).
 
-### ArchiveCommands Component
+### Archive Commands Component
 The `ArchiveCommands` class is responsible for transferring students from the student list to archive list and vice versa, using methods `archiveStudent` and `unarchiveStudent`.
 This class contains the `editStudent` method which is called by `InputParsing` class when user chooses to enter edit mode for a student.
 
