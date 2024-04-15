@@ -184,8 +184,6 @@ Depending on whether the user entered the student's name or not during the comma
 
 Please note that the user input NUMBER (shown below) must be an *8-digit number starting with 8 or 9*. 
 Thus, please be informed and educated that our software only works in countries that have phone numbers that are 8 digits long and start with 8 or 9.
-To be specific, this is referring to a city-state republic in South East Asia, that lies in the timezone GMT +8 in the Straits of Johor. 
-Some may debate that our time zone is actually GMT+7.5 or GMT+7, but it was changed to facilitate business deals and decisions with other financial hubs in the region thanks to our capitalistic overlords.
 
 Do note that the subject field will allow numbers as well, since lessons such as Chinese1E and Chinese1H are legitimate class names, which could signify express and higher mother tongue respectively.
 As such, it is on the onus of the user to not use nonsensical names for the subjects, to ensure that the database is sensible.
@@ -232,6 +230,8 @@ For any student that exists within the program's master, archive and recently de
 
 The following is an example of trying to add a new student that matches the name and phone number of an already existing student.
 
+<div style="page-break-after: always;"></div>
+
 #### Example usage:
 ```
 add melodie
@@ -260,7 +260,6 @@ How it works (cases for input):
 - view JAMES WONG -> JAMES WONG
   * Regardless of what capitalisation the user uses for the name, the program will recognise that upper and lower cases should return the same student.
 
-<div style="page-break-after: always;"></div>
 
 #### Example usage:
 ``` 
@@ -279,7 +278,6 @@ Classes Attended: 1
 
 Note that if 2 people of the same name are present in the list, the program will prompt the user to differentiate them through a choice between the available phone numbers tagged to them.
 
-
 ### Delete a student from the working list `delete`
 Deletes the student from the list. Allows the user to do delete [student] or just delete.
 
@@ -288,7 +286,6 @@ Deletes the student from the list. Allows the user to do delete [student] or jus
 Depending on whether the user entered the student's name or not during the command, 
 a field will be printed out in the terminal, awaiting a user input.
 
-<div style="page-break-after: always;"></div>
 
 #### Example usage:
 ``` 
@@ -297,6 +294,8 @@ Enter student name:
 wario
 Student removed successfully!
 ```
+
+<div style="page-break-after: always;"></div>
 
 ### Edit details of a student `edit`
 Edit a student's details and subjects. Allows the user to do edit [student] or just edit.
