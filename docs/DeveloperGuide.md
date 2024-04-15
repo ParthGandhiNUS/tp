@@ -441,7 +441,7 @@ Classify serves as an attempt to modernise administrative tasks in education ins
 #### 2. Adding single or multiple subjects to an existing student
 1. Prerequisites: Add student 'tim' and initiate edit mode for 'tim'.
 2. Test Case: `1`, `CS2113`, `11`, `1`, `no`
-<br/> Expected: 'tim' has subject 'CS2112' with marks '11' and '1' class attended.
+<br/> Expected: 'tim' has subject 'CS2113' with marks '11' and '1' class attended.
 3. Test Case: `1`, `CS2030`, ` `, ` `, `yes`, `CS2040`, ` `, ` `, `no`
 <br/> Expected: 'tim' has subjects 'CS2030' and 'CS2040' with no marks and attendance.
 4. Test Case: `1`, ` `
